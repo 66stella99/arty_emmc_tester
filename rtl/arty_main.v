@@ -85,7 +85,11 @@ wire  [7:0] MMC_DAT_i;
 //------------------------------------------------------------------------
 // Start of logic
 
-assign sys_clk = CLK;
+BUFG BUFG_sys_clk (
+    .O(sys_clk), // 1-bit output: Clock output
+    .I(CLK) // 1-bit input: Clock input
+);
+
 assign sys_rst_n = ck_rst;
 
 // Create a counter to display on the LEDs
